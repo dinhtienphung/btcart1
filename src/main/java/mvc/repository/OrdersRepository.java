@@ -5,5 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OdersRepository extends CrudRepository<OrdersEntity, Integer> {
+public interface OrdersRepository extends CrudRepository<OrdersEntity, Integer> {
+    OrdersEntity getByCustomerName (String name);
 }

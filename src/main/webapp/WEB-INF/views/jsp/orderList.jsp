@@ -21,57 +21,48 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <td>
-                     <button type="button" class="btn btn-success" onclick="location.href='./newProduct'">Add Product</button>
-                </td>
-            </ul>
 
-             <ul class="navbar-nav">
-                <td>
-                      <button type="button" class="btn btn-success" onclick="location.href='cart/orderList'">OderList</button>
-                </td>
-             </ul>
-        </div>
     </nav>
- <form:form action="search" method="get">
+ <form:form action="orderDetail" method="get">
     <div class="input-group">
         <input name="searchInput" type="text" class="form-control rounded" placeholder="Search" aria-label="Search"
             aria-describedby="search-addon" />
         <button type="submit" class="btn btn-outline-primary">search</button>
     </div>
  </form:form>
-<c:if test="${not empty product}">
+<c:if test="${not empty orderDetail}">
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Description</th>
-                <th scope="col">Active</th>
+                <th scope="col">customerName</th>
+                <th scope="col">customerAddress</th>
+                <th scope="col">oderDetail</th>
+
 
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="product" items="${product}">
+            <c:forEach var="orderList" items="${orderDetail}">
                 <tr>
-                    <td>${product.id}</td>
-                    <td>${product.name}</td>
-                    <td>${product.price}</td>
-                    <td>${product.productDescription}</td>
+                    <td>${orderList.id}</td>
+                    <td>${orderList.customerName}</td>
+                    <td>${orderList.customerAddress}</td>
+
                     <td>
-                        <button type="button" class="btn btn-secondary" onclick="location.href='edit/${product.id}'">Edit</button>
-                        <button type="button" class="btn btn-success" onclick="location.href='delete/${product.id}'">Delete</button>
-                        <button type="button" class="btn btn-success" onclick="location.href='cart/add/${product.id}'">Add Cart</button>
+                        <button type="button" class="btn btn-secondary" onclick="location.href='orderList/${orderList.id}'">ViewDetail</button>
+                        <button type="button" class="btn btn-secondary" onclick="location.href='orderList/deleteCart/${orderList.id}'">Delete</button>
+                          <a class="btn btn-sm btn-danger" href="orderList/deleteCart/${orderList.id}"
+                                                                   >Delete</a>
                     </td>
+
+
                 </tr>
             </c:forEach>
         </tbody>
     </table>
 </c:if>
-        <c:if test="${product.size() ==0}">
+        <c:if test="${orderDetail.size() ==0}">
             <br>
             <div class="alert alert-primary" role="alert">
                there is no data

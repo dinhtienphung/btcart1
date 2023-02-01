@@ -11,17 +11,15 @@ public class OrderDetailEntity {
     @Column (name = "id")
     private int id;
 
-    @Column (name = "productname")
-    private String productname;
     @Column (name = "quantity")
     private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "orderid")
+    @JoinColumn(name = "orderId")
     private OrdersEntity ordersEntity;
 
     @ManyToOne
-    @JoinColumn(name = "productid")
+    @JoinColumn(name = "productId")
     private ProductEntity productEntity;
 
 
@@ -37,13 +35,7 @@ public class OrderDetailEntity {
         this.id = id;
     }
 
-    public String getProductname() {
-        return productname;
-    }
 
-    public void setProductname(String productname) {
-        this.productname = productname;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -69,11 +61,11 @@ public class OrderDetailEntity {
         this.productEntity = productEntity;
     }
 
+
     @Override
     public String toString() {
         return "OrderDetailEntity{" +
                 "id=" + id +
-                ", productname='" + productname + '\'' +
                 ", quantity=" + quantity +
                 '}';
     }

@@ -1,5 +1,7 @@
 package mvc.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -13,6 +15,7 @@ public class OrdersEntity {
     private int id;
 
     @Column (name = "date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     @Column (name = "customerName")
@@ -21,7 +24,7 @@ public class OrdersEntity {
     @Column (name = "customerAddress")
     private String customerAddress;
 
-    @OneToMany(mappedBy = "ordersEntity", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "ordersEntity", fetch = FetchType.EAGER, orphanRemoval = true)
     private List<OrderDetailEntity> orderDetailEntities;
 
     public OrdersEntity() {

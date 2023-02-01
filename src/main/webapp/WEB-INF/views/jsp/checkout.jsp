@@ -22,9 +22,10 @@
 
 </head>
 <body>
+
 	<div class="container" style="margin-top: 20px;  display: flex; justify-content: center;">
             <div class="col-md-4">
-                <form:form action="update" method="POST" modelAttribute="product">
+                <form:form action="checkout" method="POST" modelAttribute="order">
                     <fieldset class="scheduler-border">
                         <legend class="scheduler-border">
                             <c:out value="${msg}" />
@@ -35,23 +36,24 @@
                                  <c:out value="${id}" />
                             </div>
                         </c:if>
+
                         <div class="form-group">
-                            <label class="control-label">Name (*)</label>
-                            <form:input path="name" type="text" class="form-control" placeholder="Name" required="true" />
+                            <label class="control-label">customerName (*)</label>
+                            <form:input path="customerName" type="text" class="form-control" placeholder="customerName" required="true" />
                         </div>
 
 
                         <div class="form-group">
-                            <label class="control-label">Price (*)</label>
-                            <form:input path="price" type="number"  class="form-control"
-                                placeholder="Price" required="true" />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Des(*)</label>
-                            <form:input path="productDescription" type="text" class="form-control"
-                                placeholder="Mo ta" required="true" />
+                            <label class="control-label">customerAddress (*)</label>
+                            <form:input path="customerAddress" type="text"  class="form-control"
+                                placeholder="customerAddress" required="true" />
                         </div>
 
+                          <div class="form-group">
+                          <label class="control-label">Date (*)</label>
+                          <form:input path="date" type="date"  class="form-control"
+                                 placeholder="date" required="true" />
+                          </div>
 
                         <br>
                         <button class="btn btn-primary btn-sm" type="submit" style="width: 350px; height: 38px; font-size: 110%;">Save</button>

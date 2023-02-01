@@ -8,6 +8,7 @@ import org.springframework.web.context.annotation.SessionScope;
 public class CartEntity {
     private OrderDetailEntity orderDetailEntity;
     private ProductEntity productEntity;
+    private OrdersEntity ordersEntity;
 
     private int quantity;
 
@@ -42,5 +43,13 @@ public class CartEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public OrdersEntity getOrdersEntity() {
+        return ordersEntity;
+    }
+
+    public void setOrdersEntity(OrdersEntity ordersEntity) {
+        this.ordersEntity = ordersEntity;
     }
 }
